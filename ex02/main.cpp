@@ -1,5 +1,45 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aaleixo- <aaleixo-@student.42lisboa.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/23 11:26:54 by aaleixo-          #+#    #+#             */
+/*   Updated: 2025/12/23 11:26:59 by aaleixo-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include "Array.hpp"
+
+int main()
+{
+    int *a = new int[10];
+    Array<int> arr(10);
+
+    srand(time(NULL));
+
+    for (int i = 0; i < 10; i++)
+    {
+        int temp = rand();
+        arr[i] = temp;
+        a[i] = temp;
+    }
+
+    for (int i = 0; i < 10; i++)
+    {
+        if ((arr[i] != a[i]))
+            std::cout << "not equal" << std::endl;
+        else
+            std::cout << "OK" << std::endl;
+    }
+
+    std::cout << "\nSize: " << arr.size() << std::endl;
+    delete[] a;
+}
+
+/* main given by the subject
 
 #define MAX_VAL 750
 
@@ -26,7 +66,6 @@ int main(int, char **)
 
     for (int i = 0; i < MAX_VAL; i++)
     {
-        // std::cout << mirror[i] << std::endl; //if you want to see the stored info
         if (mirror[i] != numbers[i])
         {
             std::cerr << "didn't save the same value!!" << std::endl;
@@ -56,4 +95,4 @@ int main(int, char **)
     }
     delete[] mirror;
     return 0;
-}
+} */
